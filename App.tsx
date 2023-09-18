@@ -2,23 +2,37 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import CustomText from "./src/theme/text/CustomText";
+import ProductListing from "./src/screens/ProductListing";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
 
   const [loaded] = useFonts({
-    regular: require("./assets/fonts/Satoshi-Regular.otf"),
-    meduim: require("./assets/fonts/Satoshi-Medium.otf"),
-    bold: require("./assets/fonts/Satoshi-Bold.otf"),
+    regular: require("./assets/fonts/Poppins-Regular.ttf"),
+    medium: require("./assets/fonts/Poppins-Medium.ttf"),
+    bold: require("./assets/fonts/Poppins-Bold.ttf"),
   });
   if (!loaded) {
     return null;
   }
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="ProductListing"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="ProductListing" component={ProductListing} />
+        </Stack.Navigator>
+
+        <StatusBar style="auto" />
+      </NavigationContainer>
+    </>
   );
 }
 
