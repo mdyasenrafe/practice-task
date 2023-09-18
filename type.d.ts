@@ -9,3 +9,8 @@ interface ProductType {
   photo: string;
   status: string;
 }
+interface BrandType {
+  id: number;
+  name: string;
+  photo: string;
+}

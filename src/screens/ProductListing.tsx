@@ -4,6 +4,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Animated,
+  FlatList,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import Header from "../components/Header";
@@ -12,9 +15,11 @@ import { CategoriesData, SubCategoriesData } from "../Datas/CategoriesData";
 import { ProductsData } from "../Datas/ProductsData";
 import { screenWidth } from "../theme/Theme";
 import ProductCard from "../components/ProductCard";
+import { BrandDatas } from "../Datas/BrandsData";
 
 export default function ProductListing() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedBrand, setSelectedBrand] = useState<string>();
   return (
     <View
       style={{
@@ -30,20 +35,20 @@ export default function ProductListing() {
             style={styles.input}
             placeholderTextColor="#717372"
           />
-          <ScrollView
+          <Animated.FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={{ marginTop: 14 }}
-          >
-            {CategoriesData.map((category) => (
+            data={CategoriesData}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
               <TouchableOpacity
-                key={category.id}
-                onPress={() => setSelectedCategory(category.name)}
+                key={item.id}
+                onPress={() => setSelectedCategory(item.name)}
                 style={[
                   styles.category,
                   {
-                    backgroundColor: category.color,
-                    borderWidth: selectedCategory === category.name ? 1 : 0,
+                    backgroundColor: item.color,
+                    borderWidth: selectedCategory === item.name ? 1.5 : 0,
                   },
                 ]}
               >
@@ -51,16 +56,14 @@ export default function ProductListing() {
                   preset="p4_medium"
                   style={{
                     color:
-                      selectedCategory === category.name
-                        ? "#8F00DB"
-                        : "#3C3C3C",
+                      selectedCategory === item.name ? "#8F00DB" : "#3C3C3C",
                   }}
                 >
-                  {category.name}
+                  {item.name}
                 </CustomText>
               </TouchableOpacity>
-            ))}
-          </ScrollView>
+            )}
+          />
           <View style={styles.subcategory_area}>
             {SubCategoriesData.map((subcategory) => (
               <TouchableOpacity
@@ -89,6 +92,61 @@ export default function ProductListing() {
               <ProductCard item={item} index={index} />
             ))}
           </View>
+
+          <View>
+            <CustomText
+              preset="p2_medium"
+              style={{
+                marginTop: 46,
+              }}
+            >
+              Shop By Brands
+            </CustomText>
+            {/* double row multiple slide */}
+
+            <Animated.FlatList
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{ alignSelf: "flex-start" }}
+              numColumns={Math.ceil(BrandDatas.length / 2)}
+              data={BrandDatas as BrandType[]}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  key={item.id}
+                  style={[
+                    styles.brand,
+                    {
+                      borderColor:
+                        selectedBrand === item.name ? "#8F00DB" : "#CFC9DF",
+                    },
+                  ]}
+                  onPress={() => setSelectedBrand(item.name)}
+                >
+                  <Image
+                    source={item.photo as any}
+                    style={styles.brand_image}
+                  />
+                  <CustomText>{item.name}</CustomText>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+          <View>
+            <CustomText
+              preset="p2_medium"
+              style={{
+                marginTop: 46,
+              }}
+            >
+              Similar Product
+            </CustomText>
+            <ScrollView style={{ marginTop: 27 }} horizontal>
+              {ProductsData.map((item: ProductType, index) => (
+                <ProductCard item={item} index={index} />
+              ))}
+            </ScrollView>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -115,6 +173,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginRight: 9,
     borderRadius: 12,
+    marginTop: 13,
   },
   subcategory_area: {
     marginTop: 10,
@@ -128,5 +187,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 20,
     width: screenWidth - 48,
+  },
+  brand: {
+    borderWidth: 1,
+    paddingVertical: 22,
+    paddingHorizontal: 15,
+    marginRight: 10,
+    borderRadius: 18,
+    height: 150,
+    marginTop: 12,
+  },
+  brand_image: {
+    // dynamic width and height
+    width: (screenWidth - 48) / 3 - 48,
+    height: (screenWidth - 48) / 3 - 48,
   },
 });

@@ -13,8 +13,20 @@ import { Ionicons } from "@expo/vector-icons";
 export default function ProductCard({ item, index }: any) {
   const [love, setLove] = useState(false);
   return (
-    <View key={index}>
-      <ImageBackground source={item.photo} style={styles.image_background}>
+    <View
+      key={index}
+      style={{
+        marginRight: 5,
+      }}
+    >
+      <ImageBackground
+        source={item.photo}
+        style={styles.image_background}
+        imageStyle={{
+          borderRadius: 10,
+          width: "auto",
+        }}
+      >
         <View style={styles.card}>
           {/* up part */}
           <View
@@ -81,7 +93,6 @@ const styles = StyleSheet.create({
   image_background: {
     width: screenWidth / 2 - 30,
     height: 252,
-    borderRadius: 12,
     marginBottom: 14,
   },
   card: {
