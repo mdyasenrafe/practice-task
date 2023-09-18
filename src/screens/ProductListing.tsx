@@ -42,7 +42,6 @@ export default function ProductListing() {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity
-                key={item.id}
                 onPress={() => setSelectedCategory(item.name)}
                 style={[
                   styles.category,
@@ -65,9 +64,9 @@ export default function ProductListing() {
             )}
           />
           <View style={styles.subcategory_area}>
-            {SubCategoriesData.map((subcategory) => (
+            {SubCategoriesData.map((subcategory, index) => (
               <TouchableOpacity
-                key={subcategory.id}
+                key={index}
                 style={[
                   styles.category,
                   {
@@ -89,7 +88,7 @@ export default function ProductListing() {
 
           <View style={styles.card_area}>
             {ProductsData.map((item: ProductType, index) => (
-              <ProductCard item={item} index={index} />
+              <ProductCard item={item} index={index} key={index} />
             ))}
           </View>
 
@@ -143,7 +142,7 @@ export default function ProductListing() {
             </CustomText>
             <ScrollView style={{ marginTop: 27 }} horizontal>
               {ProductsData.map((item: ProductType, index) => (
-                <ProductCard item={item} index={index} />
+                <ProductCard item={item} index={index} key={index} />
               ))}
             </ScrollView>
           </View>
@@ -201,5 +200,6 @@ const styles = StyleSheet.create({
     // dynamic width and height
     width: (screenWidth - 48) / 3 - 48,
     height: (screenWidth - 48) / 3 - 48,
+    resizeMode: "contain",
   },
 });
