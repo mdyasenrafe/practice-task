@@ -4,35 +4,65 @@ export const ProductsData: ProductType[] = [
     name: "Georgia Institute of Technology",
     price: "$150",
     status: "Shipping",
+    images: [
+      require("../../assets/images/products/list_1.png"),
+      require("../../assets/images/products/list_2.png"),
+      require("../../assets/images/products/list_3.png"),
+    ],
   },
   {
     photo: require("../../assets/images/products/list_2.png"),
     name: "California Institute of Technology",
     price: "$150",
     status: "Shipping",
+    images: [
+      require("../../assets/images/products/list_1.png"),
+      require("../../assets/images/products/list_2.png"),
+      require("../../assets/images/products/list_3.png"),
+    ],
   },
   {
     photo: require("../../assets/images/products/list_3.png"),
     name: "California Institute of Technology",
     price: "$150",
     status: "Shipping",
+    images: [
+      require("../../assets/images/products/list_1.png"),
+      require("../../assets/images/products/list_2.png"),
+      require("../../assets/images/products/list_3.png"),
+    ],
   },
   {
     photo: require("../../assets/images/products/list_4.png"),
     name: "California Institute of Technology",
     price: "$150",
     status: "Shipping",
+    images: [
+      require("../../assets/images/products/list_1.png"),
+      require("../../assets/images/products/list_2.png"),
+      require("../../assets/images/products/list_3.png"),
+    ],
   },
   {
     photo: require("../../assets/images/products/list_5.png"),
     name: "California Institute of Technology",
     price: "$150",
     status: "Shipping",
+    images: [
+      require("../../assets/images/products/list_1.png"),
+      require("../../assets/images/products/list_2.png"),
+      require("../../assets/images/products/list_3.png"),
+    ],
   },
   {
     photo: require("../../assets/images/products/list_6.png"),
     name: "California Institute of Technology",
     price: "$150",
     status: "Shipping",
+    images: [
+      require("../../assets/images/products/list_1.png"),
+      require("../../assets/images/products/list_2.png"),
+      require("../../assets/images/products/list_3.png"),
+    ],
   },
 ];

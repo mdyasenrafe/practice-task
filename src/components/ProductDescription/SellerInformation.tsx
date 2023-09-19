@@ -7,7 +7,7 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function SellerInformation() {
   return (
     <View style={styles.container}>
-      <CustomText preset="p2_medium" style={{ colors: "#1E1C1A" }}>
+      <CustomText preset="p2_medium" style={{ color: "#1E1C1A" }}>
         Seller Information
       </CustomText>
       <View style={styles.image_area}>
@@ -22,7 +22,7 @@ export default function SellerInformation() {
           </CustomText>
           <View style={styles.clap_area}>
             <Image
-              source={require("../../assets/icons/clap.png")}
+              source={require("../../../assets/icons/clap.png")}
               style={styles.clap_img}
             />
             <CustomText preset="p6">

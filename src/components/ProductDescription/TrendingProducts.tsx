@@ -35,7 +35,7 @@ export default function TrendingProducts() {
         {ProductsData.map((item: any, index) => {
           const [love, setLove] = useState(false);
           return (
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card} key={index}>
               <View>
                 <ImageBackground
                   source={item.photo}

@@ -8,6 +8,7 @@ interface ProductType {
   price: string;
   photo: string;
   status: string;
+  images: string[];
 }
 interface BrandType {
   id: number;
