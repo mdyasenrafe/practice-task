@@ -8,6 +8,7 @@ import Description from "../components/ProductDescription/Description";
 import CustomText from "../theme/text/CustomText";
 import { Feather } from "@expo/vector-icons";
 import CarouselImages from "../components/ProductDescription/CarouselImages";
+import FeatureCard from "../components/ProductDescription/FeatureCard";
 
 export default function ProductDetails({ navigation, route }: any) {
   const item = route.params.item;
@@ -69,6 +70,7 @@ export default function ProductDetails({ navigation, route }: any) {
           <Description />
           <SellerInformation />
           <TrendingProducts />
+          <FeatureCard />
           <RelatedProducts />
         </View>
       </ScrollView>

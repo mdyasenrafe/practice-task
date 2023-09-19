@@ -35,7 +35,7 @@ export const presets = {
   },
   h5: {
     ...BOLD,
-    fontSize: 22,
+    fontSize: 24,
   },
   h6: {
     ...MEDIUM,
