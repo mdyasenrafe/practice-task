@@ -6,10 +6,10 @@ import {
   ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
-import CustomText from "../theme/text/CustomText";
+import CustomText from "../../theme/text/CustomText";
 import { Feather, Ionicons } from "@expo/vector-icons";
-import { ProductsData } from "../Datas/ProductsData";
-import { screenWidth } from "../theme/Theme";
+import { ProductsData } from "../../Datas/ProductsData";
+import { screenWidth } from "../../theme/Theme";
 
 export default function TrendingProducts() {
   return (

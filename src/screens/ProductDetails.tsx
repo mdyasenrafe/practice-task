@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import Header from "../components/Header";
-import SellerInformation from "../components/SellerInformation";
+import SellerInformation from "../components/ProductDescription/SellerInformation";
 import CustomText from "../theme/text/CustomText";
-import TrendingProducts from "../components/TrendingProducts";
-import RelatedProducts from "../components/RelatedProducts";
+import TrendingProducts from "../components/ProductDescription/TrendingProducts";
+import RelatedProducts from "../components/ProductDescription/RelatedProducts";
 
 export default function ProductDetails() {
   return (

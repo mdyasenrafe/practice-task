@@ -1,9 +1,9 @@
 import { View, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import CustomText from "../theme/text/CustomText";
+import CustomText from "../../theme/text/CustomText";
 import { Feather } from "@expo/vector-icons";
-import { ProductsData } from "../Datas/ProductsData";
-import ProductCard from "./ProductCard";
+import { ProductsData } from "../../Datas/ProductsData";
+import ProductCard from "../ProductCard";
 
 export default function RelatedProducts() {
   return (

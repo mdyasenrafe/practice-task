@@ -1,7 +1,7 @@
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import CustomText from "../theme/text/CustomText";
-import { sellerFeaturesData } from "../Datas/SellerFeatureData";
+import CustomText from "../../theme/text/CustomText";
+import { sellerFeaturesData } from "../../Datas/SellerFeatureData";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function SellerInformation() {
@@ -12,7 +12,7 @@ export default function SellerInformation() {
       </CustomText>
       <View style={styles.image_area}>
         <Image
-          source={require("../../assets/seller.png")}
+          source={require("../../../assets/seller.png")}
           style={styles.seller_img}
         />
         <View>
