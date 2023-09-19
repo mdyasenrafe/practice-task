@@ -139,7 +139,11 @@ export default function ProductListingScreens() {
             >
               Similar Product
             </CustomText>
-            <ScrollView style={{ marginTop: 27 }} horizontal>
+            <ScrollView
+              style={{ marginTop: 27 }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            >
               {ProductsData.map((item: ProductType, index) => (
                 <ProductCard item={item} index={index} key={index} />
               ))}
