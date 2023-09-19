@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   ScrollView,
   Animated,
-  FlatList,
   Image,
 } from "react-native";
 import React, { useState } from "react";
@@ -17,7 +16,7 @@ import { screenWidth } from "../theme/Theme";
 import ProductCard from "../components/ProductCard";
 import { BrandDatas } from "../Datas/BrandsData";
 
-export default function ProductListing() {
+export default function ProductListingScreens() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedBrand, setSelectedBrand] = useState<string>();
   return (
@@ -148,6 +147,7 @@ export default function ProductListing() {
           </View>
         </View>
       </ScrollView>
+      <View style={{ height: 100 }} />
     </View>
   );
 }

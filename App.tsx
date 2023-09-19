@@ -3,8 +3,9 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CustomText from "./src/theme/text/CustomText";
-import ProductListing from "./src/screens/ProductListing";
+import ProductListing from "./src/screens/ProductListingScreens";
 import { NavigationContainer } from "@react-navigation/native";
+import ProductsListingRoute from "./src/routes/ProductsListingRoute";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -22,12 +23,15 @@ export default function App() {
     <>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="ProductListing"
+          initialRouteName="ProductListingRoute"
           screenOptions={{
             headerShown: false,
           }}
         >
-          <Stack.Screen name="ProductListing" component={ProductListing} />
+          <Stack.Screen
+            name="ProductListingRoute"
+            component={ProductsListingRoute}
+          />
         </Stack.Navigator>
 
         <StatusBar style="auto" />
