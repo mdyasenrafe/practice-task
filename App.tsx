@@ -6,6 +6,7 @@ import CustomText from "./src/theme/text/CustomText";
 import ProductListing from "./src/screens/ProductListingScreens";
 import { NavigationContainer } from "@react-navigation/native";
 import ProductsListingRoute from "./src/routes/ProductsListingRoute";
+import ProductDetails from "./src/screens/ProductDetails";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -32,6 +33,7 @@ export default function App() {
             name="ProductListingRoute"
             component={ProductsListingRoute}
           />
+          <Stack.Screen name="ProductDetails" component={ProductDetails} />
         </Stack.Navigator>
 
         <StatusBar style="auto" />

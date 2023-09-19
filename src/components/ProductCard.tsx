@@ -9,15 +9,22 @@ import React, { useState } from "react";
 import CustomText from "../theme/text/CustomText";
 import { screenWidth } from "../theme/Theme";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 
 export default function ProductCard({ item, index }: any) {
   const [love, setLove] = useState(false);
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
   return (
-    <View
+    <TouchableOpacity
       key={index}
       style={{
         marginRight: 5,
       }}
+      onPress={() => navigation.navigate("ProductDetails", { item })}
     >
       <ImageBackground
         source={item.photo}
@@ -85,7 +92,7 @@ export default function ProductCard({ item, index }: any) {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 }
 
