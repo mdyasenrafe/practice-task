@@ -34,12 +34,8 @@ export default function ProductListingScreens() {
             style={styles.input}
             placeholderTextColor="#717372"
           />
-          <Animated.FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={CategoriesData}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {CategoriesData.map((item, index) => (
               <TouchableOpacity
                 onPress={() => setSelectedCategory(item.name)}
                 style={[
@@ -60,8 +56,8 @@ export default function ProductListingScreens() {
                   {item.name}
                 </CustomText>
               </TouchableOpacity>
-            )}
-          />
+            ))}
+          </ScrollView>
           <View style={styles.subcategory_area}>
             {SubCategoriesData.map((subcategory, index) => (
               <TouchableOpacity
